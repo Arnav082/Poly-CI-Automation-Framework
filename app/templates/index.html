@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exotic Car Showcase</title>
+    <!-- Bootstrap CSS loaded via CDN for instant styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Dark Theme Styling */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="hero">
+            <h1 class="display-4 fw-bold">Exotic Car Showcase</h1>
+            <p class="lead text-secondary">Deployed via Automated DevOps Pipeline</p>
+        </div>
+
+        <!-- Car Grid -->
+        <div class="row g-4 pb-5">
+            {% for car in cars %}
+            <div class="col-md-4">
+                <div class="card h-100 shadow-lg">
+                    <img src="{{ car.image }}" class="card-img-top" alt="{{ car.brand }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.brand }} {{ car.model }}</h5>
+                        <p class="card-text text-light">{{ car.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
