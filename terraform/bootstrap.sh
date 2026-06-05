@@ -7,6 +7,7 @@ apt-get update -y
 apt-get install -y \
     python3 \
     python3-pip \
+    python3-flask \
     git \
     nginx \
     unzip \
@@ -23,7 +24,7 @@ unzip awscliv2.zip
 
 # Create project directory
 
-mkdir -p /opt/devops-app
+mkdir -p /home/ubuntu/app
 
 # Start nginx
 
