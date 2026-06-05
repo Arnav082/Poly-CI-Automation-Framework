@@ -4,6 +4,6 @@ set -e
 
 echo "Deploying application..."
 
-sudo systemctl restart devops-app
+sudo systemctl restart app
 
 echo "Deployment successful!"
