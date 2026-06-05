@@ -1,6 +1,6 @@
 resource "aws_instance" "web" {
   ami                    = var.amiID[var.aws_region]
-  instance_type          = "t2.micro"
+  instance_type          = "t2.medium"
   key_name               = "project-key"
   vpc_security_group_ids = [aws_security_group.poly-ci-sg.id]
   availability_zone      = var.aws_zone
