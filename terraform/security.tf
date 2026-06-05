@@ -15,6 +15,14 @@ resource "aws_vpc_security_group_ingress_rule" "ssh_from_myip" {
   to_port           = 22
 }
 
+resource "aws_vpc_security_group_ingress_rule" "jenkins_from_myip" {
+  security_group_id = aws_security_group.poly-ci-sg.id
+  cidr_ipv4         = "1.39.246.17/32"
+  from_port         = 8080
+  ip_protocol       = "tcp"
+  to_port           = 8080
+}
+
 resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   security_group_id = aws_security_group.poly-ci-sg.id
   cidr_ipv4         = "0.0.0.0/0"
@@ -23,7 +31,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   to_port           = 80
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+resource "aws_vpc_security_group_ingress_rule" "allow_http_ipv6" {
   security_group_id = aws_security_group.poly-ci-sg.id
   cidr_ipv6         = "::/0"
   from_port         = 80
@@ -31,7 +39,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   to_port           = 80
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+resource "aws_vpc_security_group_ingress_rule" "allow_car_app" {
   security_group_id = aws_security_group.poly-ci-sg.id
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 5000
@@ -39,7 +47,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   to_port           = 5000
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allow_http" {
+resource "aws_vpc_security_group_ingress_rule" "allow_car_app_ipv6" {
   security_group_id = aws_security_group.poly-ci-sg.id
   cidr_ipv6         = "::/0"
   from_port         = 5000
