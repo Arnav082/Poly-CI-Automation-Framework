@@ -2,6 +2,8 @@
 
 set -e
 
-pwd 
+echo "Deploying application..."
 
-sudo systemctl restart app
+sudo systemctl restart devops-app
+
+echo "Deployment successful!"
